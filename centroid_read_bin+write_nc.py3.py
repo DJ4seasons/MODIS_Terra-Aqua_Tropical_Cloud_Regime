@@ -3,11 +3,11 @@ Read binary centroid file, and write to NetCDF format
 
 Input files:
 1. Centroids
-data/Centroid.MODIS_T+A_b42_DTR_CR10.dpdat
+data/Centroid.MODIS_T+A_b42_DTR_CR10.f64dat
 [k=10, nCTP=7, nTAU=6], float64 (8 Byte)
 
 2. Sub-centroids for Regime#10 (last one)
-data/Centroid.MODIS_T+A_b42_DTR_CR10.subCR4.dpdat
+data/Centroid.MODIS_T+A_b42_DTR_CR10.subCR4.f64dat
 [k=4, nCTP=7, nTAU=6], float64 (8 Byte)
 
 By Daeho Jin
@@ -45,8 +45,8 @@ ctp_boundaries=[0,180,310,440,560,680,800,1100]
 
 ###--
 indir = "./Data/"
-fn_ctd = 'Centroid.MODIS_T+A_b42_DTR_CR{:d}.dpdat'.format(km)
-fn_ctdsub = 'Centroid.MODIS_T+A_b42_DTR_CR{}.subCR{}.dpdat'.format(km,sub_km)
+fn_ctd = 'Centroid.MODIS_T+A_b42_DTR_CR{:d}.f64dat'.format(km)
+fn_ctdsub = 'Centroid.MODIS_T+A_b42_DTR_CR{}.subCR{}.f64dat'.format(km,sub_km)
 
 ctd= bin_file_read2mtx(indir+fn_ctd,dtp=np.float64).reshape(km,nctp,ntau)
 subctd= bin_file_read2mtx(indir+fn_ctdsub,dtp=np.float64).reshape(sub_km,nctp,ntau)
