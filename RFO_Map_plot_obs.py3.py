@@ -103,8 +103,8 @@ map0a=np.zeros([nk,nlat,nlon],dtype=float)
 iyr,eyr=date_range[0].year,date_range[1].year
 totdays=0
 for yy in range(iyr,eyr+1,1):
-    idate = date(iyr,1,1)
-    ndays = (date(iyr,12,31)-idate).days+1
+    idate = date(yy,1,1)
+    ndays = (date(yy,12,31)-idate).days+1
     fnm_tail = "from{}_{}dx{}x{}.int16dat".format(idate.strftime('%Y%m%d'),ndays,nlat0,nlon0)
 
     crnum_t = bin_file_read2mtx(dir1+fnm1+fnm_tail,dtp=np.int16).reshape([ndays,nlat0,nlon0])[:,latidx[0]:latidx[1],:]
